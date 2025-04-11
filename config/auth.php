@@ -14,9 +14,10 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
-    ],
+    'guard' => 'api',
+    'passwords' => 'users',
+],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -36,11 +37,18 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
+    'web' => [
+        'driver' => 'session',
+        'provider' => 'users',
     ],
+
+    'api' => [
+        'driver' => 'jwt', // <- PENTING: pakai 'jwt' bukan 'token'
+        'provider' => 'users',
+        'hash' => false,
+    ],
+],
+
 
     /*
     |--------------------------------------------------------------------------
